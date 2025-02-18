@@ -5,7 +5,9 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
