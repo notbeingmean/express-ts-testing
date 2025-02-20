@@ -242,3 +242,301 @@ describe("Change Yahtzee", () => {
     expect(expected).toBe(result);
   });
 });
+
+describe("Full House Yahtzee", () => {
+  it("should return 25 when dice is [2,2,2,5,5]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 2, 2, 5, 5];
+    const expected = 25;
+
+    const result = yahtzee.calculateFullHouse(dices);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 25 when dice is [5,5,2,2,2]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [5, 5, 2, 2, 2];
+    const expected = 25;
+
+    const result = yahtzee.calculateFullHouse(dices);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 25 when dice is [1,5,1,1,5]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 5, 1, 1, 5];
+    const expected = 25;
+
+    const result = yahtzee.calculateFullHouse(dices);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,1,1,1,5]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 1, 1, 1, 5];
+    const expected = 0;
+
+    const result = yahtzee.calculateFullHouse(dices);
+
+    expect(expected).toBe(result);
+  });
+});
+
+describe("Yahtzee Five of a kind", () => {
+  it("should return 50 when dice is [1,1,1,1,1]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 1, 1, 1, 1];
+    const expected = 50;
+
+    const result = yahtzee.calculateFiveOfAKind(dices);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 50 when dice is [5,5,5,5,5]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [5, 5, 5, 5, 5];
+    const expected = 50;
+
+    const result = yahtzee.calculateFiveOfAKind(dices);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [2,4,4,4,4]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 4, 4, 4, 4];
+    const expected = 0;
+
+    const result = yahtzee.calculateFiveOfAKind(dices);
+
+    expect(expected).toBe(result);
+  });
+});
+
+describe("Straight Yahtzee", () => {
+  it("should return 30 when dice is [1,2,3,4,6] and target is small straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 2, 3, 4, 6];
+    const target = "small";
+    const expected = 30;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 30 when dice is [4,6,5,1,3] and target is small straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [4, 6, 5, 1, 3];
+    const target = "small";
+    const expected = 30;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 30 when dice is [1,2,3,4,5] and target is small straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 2, 3, 4, 5];
+    const target = "small";
+    const expected = 30;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,2,3,5,6] and target is small straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 2, 3, 5, 6];
+    const target = "small";
+    const expected = 0;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 40 when dice is [2,3,4,5,6] and target is large straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 3, 4, 5, 6];
+    const target = "large";
+    const expected = 40;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 40 when dice is [2,4,5,1,3] and target is large straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 4, 5, 1, 3];
+    const target = "large";
+    const expected = 40;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,3,4,5,6] and target is large straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 3, 4, 5, 6];
+    const target = "large";
+    const expected = 0;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [2,2,3,4,5] and target is large straight", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 2, 3, 4, 5];
+    const target = "large";
+    const expected = 0;
+
+    const result = yahtzee.calculateStraight(dices, target);
+
+    expect(expected).toBe(result);
+  });
+});
+
+describe("Three of a kind and Four of a kind Yahtzee", () => {
+  it("should return 5 when dice is [1,1,1,1,1] when target is 3", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 1, 1, 1, 1];
+    const target = 3;
+    const expected = 5;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 5 when dice is [2,2,2,2,5] when target is 3", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 2, 2, 2, 5];
+    const target = 3;
+    const expected = 13;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 8 when dice is [1,1,1,2,3] when target is 3", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 1, 1, 2, 3];
+    const target = 3;
+    const expected = 8;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 12 when dice is [2,2,2,3,3] when target is 3", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 2, 2, 3, 3];
+    const target = 3;
+    const expected = 12;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,3,5,5,6] when target is 3", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 3, 5, 5, 6];
+    const target = 3;
+    const expected = 0;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [2,4,5,3,6] when target is 3", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [2, 4, 5, 3, 6];
+    const target = 3;
+    const expected = 0;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 30 when dice is [6,6,6,6,6] when target is 4", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [6, 6, 6, 6, 6];
+    const target = 4;
+    const expected = 30;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 26 when dice is [5,5,5,5,6] when target is 4", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [5, 5, 5, 5, 6];
+    const target = 4;
+    const expected = 26;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,1,1,4,6] when target is 4", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 1, 1, 4, 6];
+    const target = 4;
+    const expected = 0;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [5,5,5,3,3] when target is 4", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [5, 5, 5, 3, 3];
+    const target = 4;
+    const expected = 0;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,1,5,4,3] when target is 4", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 1, 5, 4, 3];
+    const target = 4;
+    const expected = 0;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 0 when dice is [1,2,3,4,5] when target is 4", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 2, 3, 4, 5];
+    const target = 4;
+    const expected = 0;
+
+    const result = yahtzee.calculateThreeOrFourOfAKind(dices, target);
+
+    expect(expected).toBe(result);
+  });
+});
