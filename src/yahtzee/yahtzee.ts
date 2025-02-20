@@ -8,4 +8,8 @@ export class Yahtzee {
     if (target < 1 || target > 6) throw new Error("Invalid target");
     return dices.reduce((acc, dice) => (dice === target ? acc + dice : acc), 0);
   }
+
+  calculateChange(dices: ArrayOfDice): number {
+    return dices.reduce((acc, dice) => acc + dice, 0);
+  }
 }

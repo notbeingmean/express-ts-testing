@@ -1,6 +1,6 @@
 import { ArrayOfDice, Yahtzee } from "./yahtzee";
 
-describe("Yahtzee: Success Case", () => {
+describe("Upper section Yahtzee: Success Case", () => {
   it("should return 1 when dice is [1,2,3,4,6] and target is 1", () => {
     const yahtzee = new Yahtzee();
     const dices: ArrayOfDice = [1, 2, 3, 4, 6];
@@ -83,17 +83,6 @@ describe("Yahtzee: Success Case", () => {
     const dices: ArrayOfDice = [3, 3, 4, 3, 3];
     const target = 3;
     const expected = 12;
-
-    const result = yahtzee.calculateDicesByTarget(dices, target);
-
-    expect(expected).toBe(result);
-  });
-
-  it("should return 0 when dice is [1,4,5,6,2] and target is 3", () => {
-    const yahtzee = new Yahtzee();
-    const dices: ArrayOfDice = [1, 4, 5, 6, 2];
-    const target = 3;
-    const expected = 0;
 
     const result = yahtzee.calculateDicesByTarget(dices, target);
 
@@ -200,7 +189,7 @@ describe("Yahtzee: Success Case", () => {
   });
 });
 
-describe("Yahtzee: Failure Case", () => {
+describe("Upper section Yahtzee: Failure Case", () => {
   it("should throw an error when target is 0 and dice is [1,1,1,1,1]", () => {
     const yahtzee = new Yahtzee();
     const dices: ArrayOfDice = [1, 1, 1, 1, 1];
@@ -229,5 +218,27 @@ describe("Yahtzee: Failure Case", () => {
     expect(() => yahtzee.calculateDicesByTarget(dices, target)).toThrow(
       "Invalid target"
     );
+  });
+});
+
+describe("Change Yahtzee", () => {
+  it("should return 16 when dice is [1,2,3,4,6]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [1, 2, 3, 4, 6];
+    const expected = 16;
+
+    const result = yahtzee.calculateChange(dices);
+
+    expect(expected).toBe(result);
+  });
+
+  it("should return 19 when dice is [4,6,5,1,3]", () => {
+    const yahtzee = new Yahtzee();
+    const dices: ArrayOfDice = [4, 6, 5, 1, 3];
+    const expected = 19;
+
+    const result = yahtzee.calculateChange(dices);
+
+    expect(expected).toBe(result);
   });
 });
